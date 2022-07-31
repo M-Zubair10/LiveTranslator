@@ -29,8 +29,8 @@ class Dictionary:
             translation = Translator().translate(text, src='en', dest='ur').text
         except Exception as e:
             sg.theme('defaultNoMoreNagging')
-            sg.popup_error(f"{e}", title='Translator error', text_color='red')
-            sys.exit(1)
+            sg.popup_error(f"{e}\nPlease try again!", title='Translator error', text_color='red')
+            return
 
         def get_explanation(window):
             driver = Selenium('chrome', start=True, load_full=True, args=['--headless'])
